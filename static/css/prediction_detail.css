@@ -1,3 +1,4 @@
+/* ========== Import Fonts ========== */
 @font-face {
     font-family: 'Coanda-Bold';
     src: url('../fonts/Coanda-Bold.woff') format('woff2'); /* Adjust the path based on your directory structure */
@@ -18,11 +19,14 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* ========== Initial Settings ========== */
 html {
     overflow-x: none !important;
     width: 100%;
     height: 100%;
 }
+
 body{
     background-color: #121212 !important;
     overflow-x: none !important;
@@ -30,28 +34,32 @@ body{
     height: 100%;
     width: 100%;
 }
+
 *, *::after, *::before {
     box-sizing: border-box;
 }
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
 }
+
 body::-webkit-scrollbar {
     width: 0.3em;
 }
+
 body::-webkit-scrollbar-track {
     background-color: #fcfcf9;
 } 
+
 body::-webkit-scrollbar-thumb {
     border-radius: 1em;
     background-color: #121212;
 }
 
-
-
+/* ========== Loading Styles ========== */
 #loading {
     position: fixed;
     width: 100%;
@@ -63,7 +71,6 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
 }
-
 
 .loader-content {
     text-align: center;
@@ -79,29 +86,24 @@ body::-webkit-scrollbar-thumb {
     margin: 0 auto 15px;
   }
   
-  .loading-text {
+.loading-text {
     font-family: 'Vazir', sans-serif;
     font-size: 18px;
     color: #bbb;
     animation: pulse 1.5s infinite;
-  }
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+}
   
-  @keyframes pulse {
+@keyframes pulse {
     0%, 100% { opacity: 0.6; }
     50% { opacity: 1; }
-  }
+}
   
-  
-
-
-
-
-
+/* ========== Main Container ========== */
 .container {
     width: 100%;
     height: 100%;
@@ -110,6 +112,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     flex-direction: column;
 }
+
 .container .blog-title {
     text-transform: uppercase;
     font-size: clamp(100px, 10vw, 120px);
@@ -117,6 +120,7 @@ body::-webkit-scrollbar-thumb {
     letter-spacing: 0.05em;
     font-weight: 400;
 }
+
 .container .main-content {
     width: 80%;
     border: 1px solid #FFF;
@@ -129,10 +133,12 @@ body::-webkit-scrollbar-thumb {
     margin-top: 100px;
     padding: 50px;
 }
+
 .container .main-content .content {
     font-size: 16px;
     text-align: justify;
 }
+
 .container a {
     margin-top: 50px;
     margin-left: 10%;
@@ -142,6 +148,7 @@ body::-webkit-scrollbar-thumb {
     color: inherit; 
     transition: all 0.1s linear;
 }
+
 .container a:hover {
     transform: scale(1.05);
     color: #6ebdfa;
