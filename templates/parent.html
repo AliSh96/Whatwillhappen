@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <!-- -------------------- Style links -------------------- -->
+    <link rel="stylesheet" href="{% static 'css/parent.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/photo_2025-01-30_19-24-58.jpg' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <!-- -------------------- Loading Page -------------------- -->
+    <div id="loading">
+        <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <p class="loading-text">LOADING ...</p>
+        </div>
+    </div>
+    
+    <main>
+        <section class="banner-vid">
+            <video id="myVideo" playsinline  preload="metadata" muted>
+                <source src="{% static 'images/mainBanner.mp4' %}" type="video/mp4">
+                Your browser doesn't support this banner.
+            </video>
+            <img src="{% static 'images/Animation - 1737911102796.gif' %}" alt="Scroll down gif" width="70" height="70">
+        </section>
+        <div class="content">
+            <h1>
+                <strong class="one">WHAT</strong>
+                <em><strong class="two">WILL</strong></em>
+                <strong class="three">HAPPEN ?</strong>
+            </h1>
+            <p>
+                Welcome to our visionary NFT collection! 🌟
+                Our collection is designed to anticipate future events, 
+                providing you with the insights and awareness needed to navigate what’s ahead. 
+                We harness the full potential of both the material and metaphysical realms, 
+                collaborating with influential figures to unveil highly probable future scenarios. 
+                Join us on this journey to stay ahead of the curve and be prepared for the future.
+            </p>
+        </div>
+        <section class="eye-vid-container">
+            <video id="eye-vid" autoplay loop muted playsinline preload="metadata">
+                <source src="{% static 'images/7938.mp4' %}" type="video/mp4">
+            </video>
+        </section>
+        <section id="roadmap">
+            <h1>Future Roadmap</h1>
+            <div class="predictions">
+                {% for prediction in predictions %}
+                <a href="{% url 'core:prediction_detail' prediction.id %}" class="circle">
+                    <div class="circle-img">
+                        <img src="{{ prediction.image.url }}" alt="Image">
+                    </div>
+                    <div class="circle-title">{{ prediction.title }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="my-team">
+            <h1>OUR TEAM MEMBERS</h1>
+            <ul class="members" id="members">
+                <li>
+                    <video muted class="member-video" preload="metadata" playsinline autoplay>
+                        <source src="{% static '/images/8070.mp4' %}" type="video/mp4">
+                    </video>
+                    <h4>Coach</h4>
+                    <h5>Alone Mask</h5>
+                </li>
+                <li>
+                    <video muted class="member-video" preload="metadata" playsinline autoplay>
+                        <source src="{% static '/images/8056.mp4' %}" type="video/mp4">
+                    </video>
+                    <h4>Head</h4>
+                    <h5>Behnad13</h5>
+                </li>
+                <li>
+                    <video muted class="member-video" preload="metadata" playsinline autoplay>
+                        <source src="{% static '/images/8060.mp4' %}" type="video/mp4">
+                    </video>
+                    <h4>Artist</h4>
+                    <h5>Wangock</h5>
+                </li>
+                <li>                    
+                    <video muted class="member-video" preload="metadata" playsinline autoplay>
+                        <source src="{% static '/images/8058.mp4' %}" type="video/mp4">
+                    </video>
+                    <h4>Wizard</h4>
+                    <h5>iA</h5>
+                </li>
+                <li>
+                    <video muted class="member-video" preload="metadata" playsinline autoplay>
+                        <source src="{% static '/images/8061.mp4' %}" type="video/mp4">
+                    </video>
+                    <h4>Handeling</h4>
+                    <h5>Beaz</h5>
+                </li>
+            </ul>
+        </section>
+        <section class="contact-us">
+            <section class="form">
+                <form action="" method="POST" id="contact-form">
+                    {% csrf_token %}
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="text" id="wallet" placeholder="Your Wallet">
+                    <button type="submit" id="sbtn">Submit</button>
+                </form>
+            </section>
+            <section class="form-header">
+                Now! Be in touch with us
+            </section>
+        </section>
+        <section class="social">
+            <section class="social-header">
+                Follow us in socials
+            </section>
+            <section class="social-icons">
+                <ul>
+                    <li><a href="https://x.com/xwhatwillhappen?s=21"><img src="{% static 'images/icons8-x.svg' %}" alt="X-Icon"></a></li>
+                    <li><a href="https://discord.gg/VHtDWDvy"><img src="{% static 'images/icons8-discord-50.svg' %}" alt="X-Icon"></a></li>
+                    <li><a class="nft-launch" href="#"><img  src="{% static 'images/lunch-my-nft-icon.svg' %}" alt="X-Icon"></a></li>
+                </ul>
+            </section>
+        </section>
+        <footer>
+            <hr>
+            <span>Designed by ALISH. </span>
+            <p><span>&copy;</span>2025. All rights reserved. </p>
+        </footer>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('myVideo');
+            video.play();
+        });
+    </script>
+    <script src="{% static 'js/parent.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ prediction.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/prediction_detail.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/photo_2025-01-30_19-24-58.jpg' %}">
+</head>
+<body>
+    <!-- -------------------- Loading Page -------------------- -->
+    <div id="loading">
+        <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <p class="loading-text">LOADING ...</p>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="blog-title">{{ prediction.title }}</h1>
+        <section class="main-content">
+            <p class="content">{{ prediction.content }}</p>
+        </section>
+        <!-- <p>{{ prediction.created_at|date:"Y-m-d H:i" }}</p> -->
+        <a href="{% url 'core:Home' %}">Go back to Home</a>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+        const loader = document.getElementById('loading');
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+        });
+    </script>
+</body>
+</html>
