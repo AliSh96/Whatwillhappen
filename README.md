@@ -36,6 +36,7 @@ This is my Django project for predicting and providing buy/sell signals for NFTs
 If you'd like to run this locally, here’s how:
 
 1️⃣ Clone the repository:
+
 ```bash
 git clone [your-repo-url]
 cd whatwillhappen
@@ -56,7 +57,10 @@ Create a superuser:
 Run the development server:
   - python manage.py runserver
 
+```
+
 ## 📸 Screenshots
+
 (screenshots/1.png)
 (screenshots/2.png)
 (screenshots/3.png)
